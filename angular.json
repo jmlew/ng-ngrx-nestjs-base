@@ -18,12 +18,13 @@
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush"
         }
       },
       "root": "apps/ng-app",
       "sourceRoot": "apps/ng-app/src",
-      "prefix": "ng-nest-base",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -210,6 +211,52 @@
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "playground": {
+      "root": "apps/ng-app",
+      "sourceRoot": "apps/ng-app/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/playground",
+            "index": "apps/ng-app/src/index.html",
+            "main": "apps/ng-app/src/main.playground.ts",
+            "polyfills": "apps/ng-app/src/polyfills.ts",
+            "tsConfig": "apps/ng-app/tsconfig.app.json",
+            "assets": ["apps/ng-app/src/favicon.ico", "apps/ng-app/src/assets"],
+            "styles": ["apps/ng-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-app/src/environments/environment.ts",
+                  "with": "apps/ng-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "playground:build",
+            "port": 4201
           }
         }
       }
