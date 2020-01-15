@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@ng-nest-base/api-interfaces';
+import { Message } from '@api-interfaces';
 
 @Component({
   selector: 'ng-nest-base-root',
