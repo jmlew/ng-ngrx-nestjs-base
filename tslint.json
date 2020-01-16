@@ -39,7 +39,7 @@
     "no-empty-interface": false,
     "no-eval": true,
     "no-host-metadata-property": true,
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": [true, ["@api-interfaces"]],
     "no-inferrable-types": [true, "ignore-params"],
     "no-input-rename": true,
     "no-inputs-metadata-property": true,

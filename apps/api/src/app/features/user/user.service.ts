@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
+import { User, UserParams } from '@api-interfaces';
 import * as fromUsersDb from '../../../db/users.json';
 import * as fromSharedUtils from '../../shared/utils';
-import { User, UserParams } from './user.model';
 
 @Injectable()
 export class UserService {
   private users: User[];
 
   constructor() {
-    this.users = fromUsersDb;
+    this.users = fromUsersDb['default'];
   }
 
   getAllUsers(): Observable<User[]> {

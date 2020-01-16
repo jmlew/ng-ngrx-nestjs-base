@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
 
-import { User, UserParams } from '../models';
+import { User, UserParams } from '@api-interfaces';
 import { UserApiService } from '../services/user-api.service';
 
 import * as fromActions from './user.actions';

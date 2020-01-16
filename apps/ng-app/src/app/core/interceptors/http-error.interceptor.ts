@@ -27,6 +27,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   }
 
   private getErrorMessage(error: HttpErrorResponse): string {
-    return error.error ? error.error.message || error.error.error : error.message;
+    return error.error
+      ? error.error.message || error.error.error || error.message
+      : error.message;
   }
 }

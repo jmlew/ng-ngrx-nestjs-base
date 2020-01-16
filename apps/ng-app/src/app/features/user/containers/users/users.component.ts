@@ -3,10 +3,10 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Dictionary } from '@ngrx/entity';
 import { Observable } from 'rxjs';
 
-import * as fromComponents from '../../components';
+import { User } from '@api-interfaces';
 import { IconMat } from '../../../../shared/enums/icons.enum';
-import { User } from '../../models';
 import { ApiLoadable } from '../../../../shared/models';
+import * as fromComponents from '../../components';
 import * as fromServices from '../../services';
 import * as fromUserActions from '../../store/user.actions';
 
@@ -34,7 +34,9 @@ export class UsersComponent implements OnInit {
   }
 
   onAddNew() {
-    const dialogRef: MatDialogRef<fromComponents.UserFormDialogComponent> = this.openFormDialog();
+    const dialogRef: MatDialogRef<
+      fromComponents.UserFormDialogComponent
+    > = this.openFormDialog();
     dialogRef.afterClosed().subscribe((added: User) => {
       if (added != null) {
         this.onSubmitAdd(added);
@@ -43,9 +45,9 @@ export class UsersComponent implements OnInit {
   }
 
   onEdit(user: User) {
-    const dialogRef: MatDialogRef<fromComponents.UserFormDialogComponent> = this.openFormDialog(
-      user
-    );
+    const dialogRef: MatDialogRef<
+      fromComponents.UserFormDialogComponent
+    > = this.openFormDialog(user);
 
     dialogRef.afterClosed().subscribe((updated: User) => {
       if (updated != null) {

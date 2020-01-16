@@ -1,4 +1,4 @@
-import { DataItem } from '../../shared/models';
+import { DataItem } from '../shared';
 
 export interface UserParams {
   name: string;

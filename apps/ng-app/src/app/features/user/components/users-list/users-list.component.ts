@@ -7,8 +7,8 @@ import {
   Output,
 } from '@angular/core';
 
+import { User } from '@api-interfaces';
 import { IconMat } from '../../../../shared/enums/icons.enum';
-import { User } from '../../models';
 
 @Component({
   selector: 'app-users-list',

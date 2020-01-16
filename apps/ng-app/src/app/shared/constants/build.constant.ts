@@ -6,5 +6,5 @@ export const buildDetails = {
   appName: 'Angular Base App',
   appVersion: packageJson.version,
   envName: environment.production ? 'PROD' : 'DEV',
-  apiUrl: environment.production ? '/' : 'http://localhost:3000/',
+  apiUrl: environment.production ? '/api/' : 'http://localhost:3333/api/',
 };

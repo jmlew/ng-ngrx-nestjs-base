@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+import { User, UserParams } from '@api-interfaces';
 import { ApiService } from '../../../shared/services';
-import { User, UserParams } from '../models/user.model';
 
 enum ApiEndpoint {
   User = 'user',

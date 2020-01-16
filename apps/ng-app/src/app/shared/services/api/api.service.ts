@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 import { buildDetails } from '../../constants';
 import { SharedModule } from '../../shared.module';
@@ -17,17 +17,17 @@ export class ApiService {
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
   }
 
-  post<T>(endPoint: string, data: {}): Observable<T> {
+  post<T>(endPoint: string, body: any | null): Observable<T> {
     const url: string = this.getUrl(endPoint);
     return this.http
-      .post<T>(url, data)
+      .post<T>(url, body)
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
   }
 
-  put<T>(endPoint: string, data: {}): Observable<T> {
+  put<T>(endPoint: string, body: any | null): Observable<T> {
     const url: string = this.getUrl(endPoint);
     return this.http
-      .put<T>(url, data)
+      .put<T>(url, body)
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
   }
 
@@ -38,10 +38,10 @@ export class ApiService {
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
   }
 
-  deleteMany<T>(endPoint: string, data: {} = null): Observable<T> {
+  deleteMany<T>(endPoint: string, body: any | null = null): Observable<T> {
     const url: string = this.getUrl(endPoint);
     return this.http
-      .request<T>('delete', url, { body: data })
+      .request<T>('delete', url, { body })
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
   }
 

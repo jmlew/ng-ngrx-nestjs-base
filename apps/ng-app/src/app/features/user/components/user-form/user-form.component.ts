@@ -8,10 +8,8 @@ import {
 } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { User, UserParams } from '@api-interfaces';
 import { UserParamKey } from '../../enums/user.enum';
-import { User } from '../../models';
-
-import { UserParams } from '../../models/user.model';
 
 @Component({
   selector: 'app-user-form',
