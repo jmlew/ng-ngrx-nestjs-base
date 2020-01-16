@@ -36,7 +36,10 @@
             "tsConfig": "apps/ng-app/tsconfig.app.json",
             "aot": false,
             "assets": ["apps/ng-app/src/favicon.ico", "apps/ng-app/src/assets"],
-            "styles": ["apps/ng-app/src/styles.scss"],
+            "styles": [
+              "apps/ng-app/src/styles/mat-theme.scss",
+              "apps/ng-app/src/styles/global.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -226,7 +229,10 @@
             "polyfills": "apps/ng-app/src/polyfills.ts",
             "tsConfig": "apps/ng-app/tsconfig.app.json",
             "assets": ["apps/ng-app/src/favicon.ico", "apps/ng-app/src/assets"],
-            "styles": ["apps/ng-app/src/styles.scss"],
+            "styles": [
+              "apps/ng-app/src/styles/mat-theme.scss",
+              "apps/ng-app/src/styles/global.scss"
+            ],
             "scripts": []
           },
           "configurations": {
