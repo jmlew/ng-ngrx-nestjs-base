@@ -1,0 +1,71 @@
+<form
+    [formGroup]="userForm"
+    (ngSubmit)="onSubmit()">
+    <div>
+        <div
+            fxLayout="column"
+            fxLayoutGap="1em"
+            class="w-100">
+            <mat-form-field>
+                <input
+                    matInput
+                    type="text"
+                    [formControlName]="UserParamKey.Name"
+                    placeholder="Name">
+                <mat-error
+                    *ngIf="isControlError(UserParamKey.Name)"
+                    class="alert alert-danger">
+                    <div *ngIf="getControl(UserParamKey.Name).errors?.required">Name is required.</div>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                    matInput
+                    type="text"
+                    [formControlName]="UserParamKey.Email"
+                    placeholder="Email">
+                <mat-hint align="end">(Can use 'admin@localhost' for demo)</mat-hint>
+                <mat-error
+                    *ngIf="isControlError(UserParamKey.Email)"
+                    class="alert alert-danger">
+                    <div *ngIf="getControl(UserParamKey.Email).errors?.required">Email is required.</div>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field hintLabel="Minimum 4 characters">
+                <input
+                    matInput
+                    type="password"
+                    [formControlName]="UserParamKey.Password"
+                    placeholder="Password">
+                <mat-hint align="end">(Can use 'admin' for demo)</mat-hint>
+                <mat-error
+                    *ngIf="isControlError(UserParamKey.Password)"
+                    class="alert alert-danger">
+                    <div *ngIf="getControl(UserParamKey.Password).errors?.required">Password is required.</div>
+                    <div *ngIf="getControl(UserParamKey.Password).errors?.minlength">Must be at least 4 characters long.</div>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="mt-6 mb-4">
+            <mat-divider></mat-divider>
+        </div>
+        <div
+            fxLayout="row"
+            fxLayoutAlign="end center"
+            fxLayoutGap="1em">
+            <button
+                mat-button
+                color="primary"
+                type="button"
+                (click)="cancel.emit()">
+                Cancel
+            </button>
+            <button
+                mat-flat-button
+                color="primary"
+                type="submit">
+                Submit
+            </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,22 @@
+<div
+    *ngIf="loadable.isLoading"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    class="app-loading">
+    <mat-spinner
+        class="exc-loading"
+        diameter="60"></mat-spinner>
+</div>
+<div
+    *ngIf="loadable.error"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px">
+    <mat-icon color="warn">{{IconMat.Error}}</mat-icon>
+    <h3 class="no-padding">
+        {{loadable.error || 'Oops! Something went wrong...'}}
+    </h3>
+</div>
+<div *ngIf="loadable.isSuccess">
+    <ng-content></ng-content>
+</div>

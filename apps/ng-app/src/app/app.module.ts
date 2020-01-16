@@ -1,13 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
-import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
+import { rootRoutes } from './app.routes';
+import { AppRootComponent } from './core/components';
+import { CoreModule } from './core/core.module';
+import { HomeModule } from './features/home/home.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule],
-  providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppRootComponent],
+  imports: [
+    // Angular.
+    BrowserModule,
+    BrowserAnimationsModule,
+
+    // App.
+    CoreModule,
+    HomeModule,
+    SharedModule,
+    RouterModule.forRoot(rootRoutes),
+  ],
+  declarations: [],
 })
 export class AppModule {}
