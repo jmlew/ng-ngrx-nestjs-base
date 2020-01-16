@@ -1,6 +1,6 @@
 import { EntityItem, EntityNumItem } from '@api-models';
 
-import { isNumber } from './misc.util';
+import { isNumber } from './validate.util';
 
 export function addToCollection<T>(item: T, items: T[]): T[] {
   return items.includes(item) ? items : [...items, item];

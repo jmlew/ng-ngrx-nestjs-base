@@ -22,6 +22,9 @@
     },
     "api-models": {
       "tags": []
+    },
+    "shared-utils": {
+      "tags": []
     }
   }
 }

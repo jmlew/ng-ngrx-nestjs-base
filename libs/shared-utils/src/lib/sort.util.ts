@@ -1,12 +1,14 @@
+import { isString } from './validate.util';
+
 export function sortByProperty<T>(
   array: T[],
   property: string,
-  isReversed: boolean = false,
+  isReversed: boolean = false
 ): T[] {
   return array.sort((a: {}, b: {}) => {
     let valueA: T;
     let valueB: T;
-    if (typeof a[property] === 'string' && typeof b[property] === 'string') {
+    if (isString(a[property]) && isString(b[property])) {
       valueA = a[property].toUpperCase();
       valueB = b[property].toUpperCase();
     } else {

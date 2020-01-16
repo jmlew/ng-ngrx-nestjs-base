@@ -16,7 +16,8 @@
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
     "paths": {
-      "@api-models": ["libs/api-models/src/index.ts"]
+      "@api-models": ["libs/api-models/src/index.ts"],
+      "@shared-utils": ["libs/shared-utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

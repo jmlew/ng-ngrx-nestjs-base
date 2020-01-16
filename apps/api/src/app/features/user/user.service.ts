@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 import { User, UserParams } from '@api-models';
+import * as fromSharedUtilsLib from '@shared-utils';
+
 import * as fromUsersDb from '../../../db/users.json';
 import * as fromSharedUtils from '../../shared/utils';
 
@@ -18,7 +20,7 @@ export class UserService {
   }
 
   getUserById(id: number): Observable<User> {
-    const user: User = fromSharedUtils.getById(this.users, id);
+    const user: User = fromSharedUtilsLib.getById(this.users, id);
     return fromSharedUtils.toStreamWithDelay(user);
   }
 
@@ -46,29 +48,29 @@ export class UserService {
   }
 
   private updateUserInDb(user: User) {
-    this.users = fromSharedUtils.updateInCollection(user, this.users);
+    this.users = fromSharedUtilsLib.updateInCollection(user, this.users);
   }
 
   private addUserToDb(user: User) {
-    this.users = fromSharedUtils.addToCollection(user, this.users);
+    this.users = fromSharedUtilsLib.addToCollection(user, this.users);
   }
 
   private removeUserFromDb(id: number) {
-    this.users = fromSharedUtils.removeIdFromCollection(id, this.users);
+    this.users = fromSharedUtilsLib.removeIdFromCollection(id, this.users);
   }
 
   private removeUsersFromDb(ids: number[]) {
-    this.users = fromSharedUtils.removeIdsFromCollection(ids, this.users);
+    this.users = fromSharedUtilsLib.removeIdsFromCollection(ids, this.users);
   }
 
   private normaliseNewUser(params: UserParams) {
-    const id: number = fromSharedUtils.getNextCollectionId(this.users);
-    const createdAt: string = fromSharedUtils.getCurrentDateString();
+    const id: number = fromSharedUtilsLib.getNextCollectionId(this.users);
+    const createdAt: string = fromSharedUtilsLib.getCurrentDateString();
     return { ...params, id, createdAt };
   }
 
   private normaliseEditedUser(user: User) {
-    const updatedAt: string = fromSharedUtils.getCurrentDateString();
+    const updatedAt: string = fromSharedUtilsLib.getCurrentDateString();
     return { ...user, updatedAt };
   }
 }

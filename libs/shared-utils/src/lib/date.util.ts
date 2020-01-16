@@ -1,5 +1,13 @@
 import * as moment from 'moment';
 
+export function getCurrentDate(): Date {
+  return moment().toDate();
+}
+
+export function getCurrentDateString(): string {
+  return dateToString(getCurrentDate());
+}
+
 export function dateToString(date: Date, format: string = null): string {
   return moment(date).format(format);
 }
