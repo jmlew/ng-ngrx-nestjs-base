@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { User, UserParams } from '@api-interfaces';
+import { User, UserParams } from '@api-models';
 import { ApiService } from '../../../shared/services';
 
 enum ApiEndpoint {

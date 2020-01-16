@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Dictionary } from '@ngrx/entity';
 import { Observable } from 'rxjs';
 
-import { User } from '@api-interfaces';
+import { User } from '@api-models';
 import { IconMat } from '../../../../shared/enums/icons.enum';
 import { ApiLoadable } from '../../../../shared/models';
 import * as fromComponents from '../../components';

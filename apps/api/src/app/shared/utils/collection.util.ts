@@ -1,4 +1,4 @@
-import { EntityItem, EntityNumItem } from '@api-interfaces';
+import { EntityItem, EntityNumItem } from '@api-models';
 
 import { isNumber } from './misc.util';
 

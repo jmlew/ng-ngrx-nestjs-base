@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
-import { User, UserParams } from '@api-interfaces';
+import { User, UserParams } from '@api-models';
 import * as fromUsersDb from '../../../db/users.json';
 import * as fromSharedUtils from '../../shared/utils';
 

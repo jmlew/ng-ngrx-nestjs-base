@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 
-import { User } from '@api-interfaces';
+import { User } from '@api-models';
 import { IconMat } from '../../../../shared/enums/icons.enum';
 
 @Component({

@@ -3,7 +3,7 @@ import { Dictionary } from '@ngrx/entity';
 import { Action, select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { User } from '@api-interfaces';
+import { User } from '@api-models';
 import { ApiLoadable } from '../../../shared/models';
 import * as fromReducer from '../store/user.reducer';
 import * as fromSelectors from '../store/user.selectors';

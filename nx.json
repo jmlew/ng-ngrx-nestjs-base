@@ -20,7 +20,7 @@
     "api": {
       "tags": []
     },
-    "api-interfaces": {
+    "api-models": {
       "tags": []
     }
   }

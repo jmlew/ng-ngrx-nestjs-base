@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-import { User } from '@api-interfaces';
+import { User } from '@api-models';
 
 @Component({
   templateUrl: './user-form-dialog.component.html',

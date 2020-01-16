@@ -1,6 +1,6 @@
 import { sandboxOf, SandboxOfConfig } from 'angular-playground';
 
-import { User } from '@api-interfaces';
+import { User } from '@api-models';
 import { SharedModule } from '../../../../shared/shared.module';
 
 import { UsersListComponent } from './users-list.component';
