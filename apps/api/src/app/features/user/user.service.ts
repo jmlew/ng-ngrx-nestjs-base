@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 import { User, UserParams } from '@api-models';
-import * as fromSharedUtilsLib from '@shared-utils';
+import * as fromUtilsLib from '@shared-utils';
 
-import * as fromUsersDb from '../../../db/users.json';
+import * as fromUsersDb from '../../../assets/db/users.json';
 import * as fromSharedUtils from '../../shared/utils';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class UserService {
   }
 
   getUserById(id: number): Observable<User> {
-    const user: User = fromSharedUtilsLib.getById(this.users, id);
+    const user: User = fromUtilsLib.getById(this.users, id);
     return fromSharedUtils.toStreamWithDelay(user);
   }
 
@@ -48,29 +48,29 @@ export class UserService {
   }
 
   private updateUserInDb(user: User) {
-    this.users = fromSharedUtilsLib.updateInCollection(user, this.users);
+    this.users = fromUtilsLib.updateInCollection(user, this.users);
   }
 
   private addUserToDb(user: User) {
-    this.users = fromSharedUtilsLib.addToCollection(user, this.users);
+    this.users = fromUtilsLib.addToCollection(user, this.users);
   }
 
   private removeUserFromDb(id: number) {
-    this.users = fromSharedUtilsLib.removeIdFromCollection(id, this.users);
+    this.users = fromUtilsLib.removeIdFromCollection(id, this.users);
   }
 
   private removeUsersFromDb(ids: number[]) {
-    this.users = fromSharedUtilsLib.removeIdsFromCollection(ids, this.users);
+    this.users = fromUtilsLib.removeIdsFromCollection(ids, this.users);
   }
 
   private normaliseNewUser(params: UserParams) {
-    const id: number = fromSharedUtilsLib.getNextCollectionId(this.users);
-    const createdAt: string = fromSharedUtilsLib.getCurrentDateString();
+    const id: number = fromUtilsLib.getNextCollectionId(this.users);
+    const createdAt: string = fromUtilsLib.getCurrentDateString();
     return { ...params, id, createdAt };
   }
 
   private normaliseEditedUser(user: User) {
-    const updatedAt: string = fromSharedUtilsLib.getCurrentDateString();
+    const updatedAt: string = fromUtilsLib.getCurrentDateString();
     return { ...user, updatedAt };
   }
 }

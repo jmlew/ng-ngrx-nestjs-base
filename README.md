@@ -1,84 +1,85 @@
-# NgNestBase
+# Angular NgRx & NestJS Base App
 
-This project was generated using [Nx](https://nx.dev).
+A Base [Angular](https://angular.io/) app using [NgRx](https://ngrx.io/) for state
+management and a [NestJS](https://docs.nestjs.com/) mock backend API.
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+Organised as a [Nx](https://nx.dev) monorepo with shared libraries containing common API models and utils.
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+Provides a best practice starting point for developing scaleable Angular web apps.
 
-## Quick Start & Documentation
+## Recommended VSCode extensions
 
-[Nx Documentation](https://nx.dev/angular)
+Find a list in .vscode/extensions.json to ensure the best development experience.
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+## Main Serve / Build / Test scripts
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+### Serve
 
-## Adding capabilities to your workspace
+Run `npm start` to serve both the frontend and backends simultaneously.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Or run each separately using `npm run serve:fe` for the frontend and `npm run serve:be`
+for the backend.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+- Navigate to `http://localhost:4200/` for the main frontend.
+- Navigate to `http://localhost:3333/api/` for the mock-api backend.
 
-Below are some plugins which you can add to your workspace:
+> HTTP calls to paths beginning with `/api` are forwarded to the backend url using the proxy.conf.json when serving in development mode.
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+> Switch between the local mock-api and external environments using the apiUrl property in `<app>/shared/constants/buildDetails`
 
-## Generate an application
+### Serve & Test Angular components
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+Run `npm run playground` and navigate to `http://localhost:4201/` to serve each component
+in isolation using [Angular Playground](https://angularplayground.it/).
 
-> You can use any of the plugins above to generate applications as well.
+> Sandboxed contexts are found in the ".sandbox.ts" files generated for relevant component.
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+### Build
 
-## Generate a library
+Run `npm run build` to build the project.
+Run `npm run build:prod` to build the production-ready project.
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+> The build artifacts will be stored in the `dist/` directory.
 
-> You can also use any of the plugins above to generate libraries as well.
+### Running unit tests
 
-Libraries are sharable across libraries and applications. They can be imported from `@ng-nest-base/mylib`.
+Unit tests are run using [Jest](https://jestjs.io)
 
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+Run `npm run test:fe` to execute the unit tests on the frontend and `npm run test:be`
+on the backend.
 
 Run `nx affected:test` to execute the unit tests affected by a change.
 
-## Running end-to-end tests
+### Running end-to-end tests
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+Run `npm run e2e` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
 Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
-## Understand your workspace
+### Understand your workspace
 
 Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
+## Code scaffolding
+
+### Create Angular Common Folders
+
+Create common folders with index barrel-files by opening the relevant dir in the terminal
+and running `sh create-dirs.sh` with the list of directories appended. If no directories
+are appended, the default subdirectories are created.
+
+Eg, from a directory two levels deep, run `sh ../../create-dirs.sh` to create defaults, or
+`sh ../../create-dirs.sh components containers services` to create specific directories.
+
+### Generate Angular Boilerplate
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+### Generate a common library
+
+Run `ng g @nrwl/angular:lib my-lib` to generate a library which can be iported from any of the apps created.
+
 ## Further help
 
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
+Check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Check out the [Nx Documentation](https://nx.dev/angular)

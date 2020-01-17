@@ -17,6 +17,9 @@
     "ng-app": {
       "tags": []
     },
+    "playground": {
+      "tags": []
+    },
     "api": {
       "tags": []
     },
