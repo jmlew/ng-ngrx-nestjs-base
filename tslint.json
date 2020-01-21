@@ -1,7 +1,12 @@
 {
   "defaultSeverity": "warning",
   "extends": ["tslint:latest", "tslint-config-prettier"],
-  "rulesDirectory": ["node_modules/codelyzer", "node_modules/rxjs-tslint"],
+  "rulesDirectory": [
+    "node_modules/codelyzer",
+    "node_modules/@nrwl/workspace/src/tslint",
+    "node_modules/rxjs-tslint"
+  ],
+
   "rules": {
     "no-implicit-dependencies": [true, ["@api-models", "@shared-utils"]],
     "arrow-return-shorthand": true,
@@ -58,6 +63,18 @@
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
     "no-var-keyword": true,
+    "nx-enforce-module-boundaries": [
+      true,
+      {
+        "allow": [],
+        "depConstraints": [
+          {
+            "sourceTag": "*",
+            "onlyDependOnLibsWithTags": ["*"]
+          }
+        ]
+      }
+    ],
     "object-literal-key-quotes": [true, "as-needed"],
     "object-literal-sort-keys": false,
     "prefer-const": true,
