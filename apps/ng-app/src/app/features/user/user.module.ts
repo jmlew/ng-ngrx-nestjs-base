@@ -25,14 +25,14 @@ import { userRoutes } from './user.routes';
     EffectsModule.forFeature([...fromStore.effects]),
   ],
   declarations: [
-    ...fromComponents.components,
-    ...fromContainers.containers,
-    ...fromDirectives.directives,
+    ...fromComponents.exports,
+    ...fromContainers.exports,
+    ...fromDirectives.exports,
   ],
   entryComponents: [...fromComponents.entryComponents],
   providers: [
-    ...fromServices.services,
-    ...fromGuards.guards,
+    ...fromServices.exports,
+    ...fromGuards.exports,
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS,
       useValue: { hasBackdrop: true, width: '80%', maxWidth: 800 },

@@ -29,7 +29,7 @@ import * as fromStore from './store';
     EffectsModule.forRoot(fromStore.effects),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  declarations: [...fromComponents.components],
-  providers: [...fromInterceptors.interceptors],
+  declarations: [...fromComponents.exports],
+  providers: [...fromInterceptors.exports],
 })
 export class CoreModule {}

@@ -4,7 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
-export const components: any[] = [
+export const exports: any[] = [
   AppRootComponent,
   FooterComponent,
   HeaderComponent,

@@ -8,7 +8,7 @@ import { UiMatModule } from './ui-mat.module';
 
 @NgModule({
   imports: [CommonModule, UiMatModule, FlexLayoutModule],
-  exports: [...fromComponents.components, CommonModule, UiMatModule, FlexLayoutModule],
-  declarations: [...fromComponents.components, ...fromDirectives.directives],
+  exports: [...fromComponents.exports, CommonModule, UiMatModule, FlexLayoutModule],
+  declarations: [...fromComponents.exports, ...fromDirectives.exports],
 })
 export class SharedModule {}

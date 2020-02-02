@@ -6,7 +6,6 @@
     "node_modules/@nrwl/workspace/src/tslint",
     "node_modules/rxjs-tslint"
   ],
-
   "rules": {
     "no-implicit-dependencies": [true, ["@api-models", "@shared-utils"]],
     "arrow-return-shorthand": true,
