@@ -9,9 +9,9 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-import { NotificationService } from '../services/notifications/notification.service';
+import { NotificationService } from '../services/notification.service';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
   constructor(private readonly notification: NotificationService) {}
 

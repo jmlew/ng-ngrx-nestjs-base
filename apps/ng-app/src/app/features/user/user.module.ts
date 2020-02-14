@@ -1,35 +1,36 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../../shared/shared.module';
+import { UserRoutingModule } from './user-routing.module';
 
-import * as fromComponents from './components';
+import * as fromComps from './components';
 import * as fromContainers from './containers';
 import * as fromDirectives from './directives';
 import * as fromGuards from './guards';
 import * as fromServices from './services';
 import * as fromStore from './store';
-import { userRoutes } from './user.routes';
+import * as fromViews from './views';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    RouterModule.forChild(userRoutes),
     StoreModule.forFeature(fromStore.usersFeatureKey, fromStore.reducers),
     EffectsModule.forFeature([...fromStore.effects]),
+    UserRoutingModule,
   ],
   declarations: [
-    ...fromComponents.exports,
+    ...fromComps.exports,
     ...fromContainers.exports,
+    ...fromViews.exports,
     ...fromDirectives.exports,
   ],
-  entryComponents: [...fromComponents.entryComponents],
+  entryComponents: [...fromComps.entryComponents],
   providers: [
     ...fromServices.exports,
     ...fromGuards.exports,

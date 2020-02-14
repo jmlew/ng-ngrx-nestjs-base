@@ -1,38 +1,36 @@
-<div class="page-content-padding">
-    <div
-        fxLayoutAlign="space-between center"
-        class="mb-4">
-        <h1 class="no-padding">Users</h1>
-        <button
-            mat-icon-button
-            color="primary"
-            class="btn-hover"
-            matTooltip="Refresh users"
-            matTooltipPosition="left"
-            (click)="onReLoadAll()">
-            <mat-icon>{{IconMat.Refresh}}</mat-icon>
-        </button>
-    </div>
-    <app-loadable [loadable]="usersLoadable$ | async">
-        <mat-card>
-            <app-users-list
-                [users]="users$ | async"
-                (edit)="onEdit($event)"
-                (remove)="onRemove($event)">
-            </app-users-list>
-            <mat-divider></mat-divider>
-            <div
-                fxLayoutAlign="end center"
-                class="p-4 pt-5">
-                <button
-                    mat-flat-button
-                    color="primary"
-                    class="btn-hover"
-                    (click)="onAddNew()">
-                    <mat-icon class="mr-2">{{IconMat.AddCircle}}</mat-icon>
-                    <span>New User</span>
-                </button>
-            </div>
-        </mat-card>
-    </app-loadable>
+<div
+  fxLayoutAlign="space-between center"
+  class="mb-4">
+  <h1 class="no-padding">Users</h1>
+  <button
+    mat-icon-button
+    color="primary"
+    class="btn-hover"
+    matTooltip="Refresh users"
+    matTooltipPosition="left"
+    (click)="onReLoadAll()">
+    <mat-icon>{{IconMat.Refresh}}</mat-icon>
+  </button>
 </div>
+<app-loadable [loadable]="usersLoadable$ | async">
+  <mat-card>
+    <app-users-list
+      [users]="users$ | async"
+      (edit)="onEdit($event)"
+      (remove)="onRemove($event)">
+    </app-users-list>
+    <mat-divider></mat-divider>
+    <div
+      fxLayoutAlign="end center"
+      class="p-4 pt-5">
+      <button
+        mat-flat-button
+        color="primary"
+        class="btn-hover"
+        (click)="onAddNew()">
+        <mat-icon class="mr-2">{{IconMat.AddCircle}}</mat-icon>
+        <span>New User</span>
+      </button>
+    </div>
+  </mat-card>
+</app-loadable>

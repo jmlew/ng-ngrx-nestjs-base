@@ -11,6 +11,21 @@ Provides a best practice starting point for developing scaleable Angular web app
 
 Find a list in .vscode/extensions.json to ensure the best development experience.
 
+## Code scaffolding
+
+### Create Angular Common Folders
+
+Create common folders with index barrel-files by opening the relevant dir in the terminal
+and running `sh create-dirs.sh` with the list of directories appended. If no directories
+are appended, the default subdirectories are created.
+
+Eg, from a directory two levels deep, run `sh ../../create-dirs.sh` to create defaults, or
+`sh ../../create-dirs.sh components containers services` to create specific directories.
+
+### Generate Angular Boilerplate
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
 ## Main Serve / Build / Test scripts
 
 ### Serve
@@ -59,21 +74,6 @@ Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 ### Understand your workspace
 
 Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Code scaffolding
-
-### Create Angular Common Folders
-
-Create common folders with index barrel-files by opening the relevant dir in the terminal
-and running `sh create-dirs.sh` with the list of directories appended. If no directories
-are appended, the default subdirectories are created.
-
-Eg, from a directory two levels deep, run `sh ../../create-dirs.sh` to create defaults, or
-`sh ../../create-dirs.sh components containers services` to create specific directories.
-
-### Generate Angular Boilerplate
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ### Generate a common library
 

@@ -1,24 +1,20 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
-import { SharedModule } from '../shared/shared.module';
 
-import * as fromComponents from './components';
 import * as fromInterceptors from './interceptors';
+import * as fromServices from './services';
 import * as fromStore from './store';
+
+const EXPORTED_PROVIDERS: any[] = [...fromServices.exports, ...fromInterceptors.exports];
 
 @NgModule({
   imports: [
-    CommonModule,
     HttpClientModule,
-    RouterModule,
-    SharedModule,
     StoreModule.forRoot(fromStore.reducers, {
       metaReducers: fromStore.metaReducers,
       runtimeChecks: {
@@ -29,7 +25,16 @@ import * as fromStore from './store';
     EffectsModule.forRoot(fromStore.effects),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  declarations: [...fromComponents.exports],
-  providers: [...fromInterceptors.exports],
+  providers: [EXPORTED_PROVIDERS],
 })
-export class CoreModule {}
+export class CoreModule {
+  constructor(
+    @Optional()
+    @SkipSelf()
+    parentModule: CoreModule
+  ) {
+    if (parentModule) {
+      throw new Error('CoreModule is already imported. Import into AppModule only.');
+    }
+  }
+}

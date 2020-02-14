@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { User, UserParams } from '@api-models';
-import { ApiService } from '../../../shared/services';
+import { ApiService } from '../../../core/services';
 
 enum ApiEndpoint {
   User = 'user',

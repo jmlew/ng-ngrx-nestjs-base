@@ -11,6 +11,7 @@ import * as fromServices from '../../services';
 import * as fromUserActions from '../../store/user.actions';
 
 @Component({
+  selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

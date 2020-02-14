@@ -1,5 +1,13 @@
-import { NotificationService } from './notifications/notification.service';
+import { ApiService } from './api.service';
+import { NotificationService } from './notification.service';
+import { ConditionalPreloadingStrategyService } from './selective-preloading-strategy.service';
 
-export const exports: any[] = [NotificationService];
+export const exports: any[] = [
+  ApiService,
+  NotificationService,
+  ConditionalPreloadingStrategyService,
+];
 
-export * from './notifications/notification.service';
+export * from './api.service';
+export * from './notification.service';
+export * from './selective-preloading-strategy.service';
