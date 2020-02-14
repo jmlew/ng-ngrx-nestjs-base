@@ -1,7 +1,6 @@
 # Angular NgRx & NestJS Base App
 
-A Base [Angular](https://angular.io/) app using [NgRx](https://ngrx.io/) for state
-management and a [NestJS](https://docs.nestjs.com/) mock backend API.
+A Base [Angular](https://angular.io/) app using [NgRx](https://ngrx.io/) for state management and a [NestJS](https://docs.nestjs.com/) mock backend API.
 
 Organised as a [Nx](https://nx.dev) monorepo with shared libraries containing common API models and utils.
 
@@ -11,16 +10,17 @@ Provides a best practice starting point for developing scaleable Angular web app
 
 Find a list in .vscode/extensions.json to ensure the best development experience.
 
+## App Structure
+
+See [http://bit.ly/scaleable-apps ](http://bit.ly/scaleable-apps) for indepth overview of the architecture.
+
 ## Code scaffolding
 
 ### Create Angular Common Folders
 
-Create common folders with index barrel-files by opening the relevant dir in the terminal
-and running `sh create-dirs.sh` with the list of directories appended. If no directories
-are appended, the default subdirectories are created.
+Create common folders with index barrel-files by opening the relevant dir in the terminal and running `sh create-dirs.sh` with the list of directories appended. If no directories are appended, the default subdirectories are created.
 
-Eg, from a directory two levels deep, run `sh ../../create-dirs.sh` to create defaults, or
-`sh ../../create-dirs.sh components containers services` to create specific directories.
+Eg, from a directory two levels deep, run `sh ../../create-dirs.sh` to create defaults, or `sh ../../create-dirs.sh components containers services` to create specific directories.
 
 ### Generate Angular Boilerplate
 
@@ -32,8 +32,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `npm start` to serve both the frontend and backends simultaneously.
 
-Or run each separately using `npm run serve:fe` for the frontend and `npm run serve:be`
-for the backend.
+Or run each separately using `npm run serve:fe` for the frontend and `npm run serve:be` for the backend.
 
 - Navigate to `http://localhost:4200/` for the main frontend.
 - Navigate to `http://localhost:3333/api/` for the mock-api backend.
@@ -44,8 +43,7 @@ for the backend.
 
 ### Serve & Test Angular components
 
-Run `npm run playground` and navigate to `http://localhost:4201/` to serve each component
-in isolation using [Angular Playground](https://angularplayground.it/).
+Run `npm run playground` and navigate to `http://localhost:4201/` to serve each component in isolation using [Angular Playground](https://angularplayground.it/).
 
 > Sandboxed contexts are found in the ".sandbox.ts" files generated for relevant component.
 
@@ -60,8 +58,7 @@ Run `npm run build:prod` to build the production-ready project.
 
 Unit tests are run using [Jest](https://jestjs.io)
 
-Run `npm run test:fe` to execute the unit tests on the frontend and `npm run test:be`
-on the backend.
+Run `npm run test:fe` to execute the unit tests on the frontend and `npm run test:be` on the backend.
 
 Run `nx affected:test` to execute the unit tests affected by a change.
 
