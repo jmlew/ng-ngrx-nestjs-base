@@ -32,16 +32,6 @@ function createSampleUser(index: number): User {
 }
 
 export default sandboxOf(UserFormComponent, config)
-  .add('With no user', {
-    template: `
-    <app-user-form
-      class="container"
-      (submitUser)="onSubmit($event)"
-      (cancel)="onCancel()"
-    ></app-user-form>`,
-    styles: [stylesCommon],
-    context: scenarioContextActions,
-  })
   .add('With sample user', {
     template: `
     <app-user-form
@@ -56,4 +46,14 @@ export default sandboxOf(UserFormComponent, config)
       user: createSampleUser(1),
       ...scenarioContextActions,
     },
+  })
+  .add('With no user', {
+    template: `
+    <app-user-form
+      class="container"
+      (submitUser)="onSubmit($event)"
+      (cancel)="onCancel()"
+    ></app-user-form>`,
+    styles: [stylesCommon],
+    context: scenarioContextActions,
   });

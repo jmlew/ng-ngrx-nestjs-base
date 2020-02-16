@@ -20,9 +20,6 @@ function createSampleUser(index: number): User {
 }
 
 export default sandboxOf(UsersListComponent, config)
-  .add('With no attrs', {
-    template: `<app-users-list></app-users-list>`,
-  })
   .add('With sample users', {
     template: `
       <mat-card class="mat-typography">
@@ -35,4 +32,7 @@ export default sandboxOf(UsersListComponent, config)
         console.log('editing user :', user);
       },
     },
+  })
+  .add('With no attrs', {
+    template: `<app-users-list></app-users-list>`,
   });

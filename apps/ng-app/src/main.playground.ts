@@ -6,10 +6,12 @@ import 'hammerjs';
 
 import { UiMatModule } from './app/shared/ui-mat.module';
 
+const IMPORTED_DEENDANCIES = [BrowserAnimationsModule, FlexLayoutModule, UiMatModule];
+
 PlaygroundModule.configure({
   selector: 'app-root',
   overlay: false,
-  modules: [BrowserAnimationsModule, FlexLayoutModule, UiMatModule],
+  modules: [...IMPORTED_DEENDANCIES],
 });
 
 platformBrowserDynamic().bootstrapModule(PlaygroundModule);
